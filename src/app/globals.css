@@ -43,9 +43,15 @@
 }
 
 body {
-  font-family: var(--font-montserrat), var(--font-noto-sans-jp), sans-serif;
+  font-family: var(--font-noto-sans-jp), var(--font-montserrat), sans-serif;
   background: var(--bg-secondary);
   color: var(--text);
+}
+
+/* Headings and the site header keep Montserrat for Latin/numeric
+   characters; everything else falls back to Noto Sans JP first. */
+h1, h2, h3, nav {
+  font-family: var(--font-montserrat), var(--font-noto-sans-jp), sans-serif;
 }
 
 .sections-bg {
@@ -178,7 +184,7 @@ nav:has(+ main .home-hero) .nav-inner {
   background: transparent;
   border: 1px solid var(--border-secondary);
   border-radius: 4px;
-  padding: 8px 16px;
+  padding: 12px 8px;
   cursor: pointer;
   transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
@@ -248,8 +254,8 @@ nav:has(+ main .home-hero) .nav-inner {
 }
 .home-post-textgroup { display: flex; flex-direction: column; gap: 12px; }
 .home-post-title { font-size: 16px; color: var(--text); line-height: 1.5; }
-.home-post-date { font-size: 16px; color: var(--text-secondary); }
-.home-post-tag { font-size: 16px; color: var(--text-secondary); }
+.home-post-date { font-size: 14px; color: var(--text-secondary); }
+.home-post-tag { font-size: 14px; color: var(--text-secondary); }
 
 @media (max-width: 900px) {
   .home-posts-inner { padding: 56px 40px; }
@@ -439,6 +445,7 @@ nav:has(+ main .home-hero) .nav-inner {
 }
 .article-card-thumb {
   aspect-ratio: 16 / 9;
+  border-radius: var(--radius-md);
   overflow: hidden;
   background: var(--bg);
   display: flex;
@@ -459,11 +466,11 @@ nav:has(+ main .home-hero) .nav-inner {
   align-items: center;
   gap: 12px;
   margin-bottom: 16px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-tertiary);
 }
 .article-card-cat {
-  font-size: 11px;
+  font-size: 14px;
   color: var(--text-tertiary);
 }
 .article-card-tags {
@@ -472,11 +479,11 @@ nav:has(+ main .home-hero) .nav-inner {
   margin-left: auto;
 }
 .article-card-tag {
-  font-size: 11px;
+  font-size: 14px;
   color: var(--text-tertiary);
 }
 .article-card-tag::before { content: "#"; }
-.article-card-meta > span { font-size: 12px; }
+.article-card-meta > span { font-size: 14px; }
 .article-card-title {
   font-size: 22px;
   font-weight: 500;
@@ -546,17 +553,9 @@ footer {
   padding: 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.footer-logo {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text);
+  justify-content: center;
 }
 .footer-copy {
   font-size: 12px;
   color: var(--text-tertiary);
-  width: 100%;
 }
