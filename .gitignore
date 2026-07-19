@@ -42,3 +42,7 @@ next-env.d.ts
 
 # local-only design reference (not part of the app)
 /design_input.md
+
+# cloudflare
+/.wrangler
+/out
