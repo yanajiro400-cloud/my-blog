@@ -47,7 +47,6 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <footer>
           <div className="footer-inner">
-            <span className="footer-logo">Jiro Blog</span>
             <p className="footer-copy">© 2025 Jiro Blog</p>
           </div>
         </footer>
