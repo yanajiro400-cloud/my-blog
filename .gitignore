@@ -42,3 +42,13 @@ next-env.d.ts
 
 # local-only design reference (not part of the app)
 /design_input.md
+
+# OpenNext
+.open-next
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+
+!.env.example
