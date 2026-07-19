@@ -48,10 +48,6 @@ export default function RootLayout({
         <footer>
           <div className="footer-inner">
             <span className="footer-logo">Jiro Blog</span>
-            <div className="footer-links">
-              <a href="#">X (Twitter)</a>
-              <a href="#">GitHub</a>
-            </div>
             <p className="footer-copy">© 2025 Jiro Blog</p>
           </div>
         </footer>
