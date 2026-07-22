@@ -503,7 +503,7 @@ nav:has(+ main .home-hero) {
 }
 .article-card-content {
   font-size: 14px;
-  color: var(--text-secondary);
+  color: var(--text);
   line-height: 1.9;
 }
 .article-card-content p + p {
