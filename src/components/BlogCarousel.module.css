@@ -44,14 +44,7 @@
   display: block;
   text-decoration: none;
   color: inherit;
-  opacity: 0.4;
   cursor: none;
-  transition: opacity 0.3s ease;
-}
-
-.cardActive,
-.cardActive:hover {
-  opacity: 1;
 }
 
 .thumb {
