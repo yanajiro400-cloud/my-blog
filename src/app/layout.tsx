@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Noto_Sans_JP } from "next/font/google";
 import Link from "next/link";
-import { Agentation } from "agentation";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -50,7 +49,6 @@ export default function RootLayout({
             <p className="footer-copy">© 2025 Jiro Blog</p>
           </div>
         </footer>
-        {process.env.NODE_ENV === "development" && <Agentation endpoint="http://localhost:4747" />}
       </body>
     </html>
   );
