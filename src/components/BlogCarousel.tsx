@@ -68,7 +68,7 @@ export function BlogCarousel({ articles }: Props) {
               <Link
                 key={article.id}
                 href={article.url}
-                className={`${styles.card} ${i === index ? styles.cardActive : ""}`}
+                className={styles.card}
                 data-hover-target
                 aria-roledescription="slide"
                 aria-label={`${i + 1} / ${articles.length}: ${article.title}`}
