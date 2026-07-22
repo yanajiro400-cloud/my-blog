@@ -6,7 +6,9 @@ import { getAllPosts } from "@/lib/posts";
 
 export default function Home() {
   const posts = getAllPosts();
-  const categories = Array.from(new Set(posts.map((p) => p.cat).filter(Boolean))) as string[];
+  const categories = Array.from(
+    new Set(posts.flatMap((p) => [p.cat, ...(p.tags ?? [])]).filter(Boolean))
+  ) as string[];
 
   const articles: BlogCarouselArticle[] = posts.map((post) => ({
     id: post.slug,

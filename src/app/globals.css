@@ -180,12 +180,12 @@ nav:has(+ main .home-hero) .nav-inner {
 .home-pill {
   font-size: 14px;
   font-weight: 400;
-  color: var(--text);
+  color: var(--accent-blue);
   background: transparent;
-  border: 1px solid var(--border-secondary);
+  border: 1px solid var(--accent-blue);
   border-radius: 4px;
   padding: 0 8px;
-  height: 40px;
+  height: 32px;
   min-width: 64px;
   display: inline-flex;
   align-items: center;
@@ -194,8 +194,8 @@ nav:has(+ main .home-hero) .nav-inner {
   transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 .home-pill:hover {
-  background: var(--border);
-  color: var(--text);
+  background: var(--accent-blue-tint);
+  color: var(--accent-blue);
 }
 .home-pill--active {
   background: var(--accent-blue);

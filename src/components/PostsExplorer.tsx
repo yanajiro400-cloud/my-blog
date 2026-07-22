@@ -9,7 +9,10 @@ import type { Post } from "@/lib/posts";
 export function PostsExplorer({ title, posts, categories }: { title: string; posts: Post[]; categories: string[] }) {
   const [active, setActive] = useState<string | null>(null);
   const visiblePosts = useMemo(
-    () => posts.filter((post) => active === null || post.cat === active),
+    () =>
+      posts.filter(
+        (post) => active === null || post.cat === active || post.tags?.includes(active)
+      ),
     [posts, active]
   );
 
