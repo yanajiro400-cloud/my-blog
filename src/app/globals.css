@@ -535,8 +535,8 @@ nav:has(+ main .home-hero) {
 /* Syntax Highlight */
 .hljs {
   display: block;
-  background: #f4f4f2;
-  color: var(--text);
+  background: #282c34;
+  color: #abb2bf;
   border-radius: var(--radius-md);
   padding: 1.1em 1.4em;
   overflow-x: auto;
