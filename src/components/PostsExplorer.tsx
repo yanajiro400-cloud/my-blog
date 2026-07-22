@@ -36,26 +36,24 @@ export function PostsExplorer({ title, posts, categories }: { title: string; pos
         )}
       </div>
       <div className="home-posts-grid">
-        {visiblePosts.map((post) => (
-          <Link
-            key={post.slug}
-            href={`/blog/${post.slug}`}
-            className="home-post-card"
-          >
-            <div className="home-post-thumb">
-              {post.img
-                ? <img src={post.img} alt={post.title} />
-                : <span className="card-thumb-placeholder">No image</span>
-              }
-            </div>
-            <div className="home-post-body">
-              <div className="home-post-textgroup">
-                <p className="home-post-title">{post.title}</p>
-                <p className="home-post-date">{formatDate(post.date)}</p>
+        {visiblePosts.map((post, i) => (
+          <Reveal as="div" key={post.slug} delay={(i % 3) * 80}>
+            <Link href={`/blog/${post.slug}`} className="home-post-card">
+              <div className="home-post-thumb">
+                {post.img
+                  ? <img src={post.img} alt={post.title} />
+                  : <span className="card-thumb-placeholder">No image</span>
+                }
               </div>
-              {post.tags?.[0] && <p className="home-post-tag">#{post.tags[0]}</p>}
-            </div>
-          </Link>
+              <div className="home-post-body">
+                <div className="home-post-textgroup">
+                  <p className="home-post-title">{post.title}</p>
+                  <p className="home-post-date">{formatDate(post.date)}</p>
+                </div>
+                {post.tags?.[0] && <p className="home-post-tag">#{post.tags[0]}</p>}
+              </div>
+            </Link>
+          </Reveal>
         ))}
       </div>
     </>
