@@ -1,4 +1,7 @@
+"use client";
+
 import type { ElementType, ComponentPropsWithoutRef } from "react";
+import { motion, type HTMLMotionProps } from "framer-motion";
 
 type RevealOwnProps<T extends ElementType> = {
   as?: T;
@@ -8,16 +11,22 @@ type RevealOwnProps<T extends ElementType> = {
 type RevealProps<T extends ElementType> = RevealOwnProps<T> &
   Omit<ComponentPropsWithoutRef<T>, keyof RevealOwnProps<T>>;
 
-// Scroll-triggered fade-in animation disabled — it could leave content
-// stuck invisible after back-navigation. Kept as a passthrough so call
-// sites don't need to change.
 export function Reveal<T extends ElementType = "div">({
   as,
-  delay: _delay,
+  delay = 0,
   className,
   ...rest
 }: RevealProps<T>) {
-  const Tag = (as ?? "div") as ElementType;
-  const props = { className: className ?? "", ...rest } as ComponentPropsWithoutRef<T>;
-  return <Tag {...props} />;
+  const MotionTag = motion[(as ?? "div") as "div"];
+
+  return (
+    <MotionTag
+      className={className ?? ""}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "0px 0px -80px 0px" }}
+      transition={{ duration: 2, delay: delay / 1000, ease: [0.16, 1, 0.3, 1] }}
+      {...(rest as HTMLMotionProps<"div">)}
+    />
+  );
 }

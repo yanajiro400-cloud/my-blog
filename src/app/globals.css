@@ -12,9 +12,6 @@
   --radius-lg: 12px;
 
   /* Shared content width so nav / hero / sections / footer all align */
-  --content-width: 1040px;
-
-  /* Home page hero/posts sections use a wider canvas per the Figma spec */
   --home-width: 1280px;
 
   /* Placeholder for cards without a thumbnail image */
@@ -69,13 +66,19 @@ nav {
   background: var(--bg);
 }
 .nav-inner {
-  max-width: var(--content-width);
+  max-width: var(--home-width);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 80px;
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+@media (max-width: 900px) {
+  .nav-inner { padding: 0 40px; }
+}
+@media (max-width: 760px) {
+  .nav-inner { padding: 0 24px; }
 }
 .logo {
   font-size: 14px;
@@ -97,16 +100,6 @@ nav {
    both share one continuous background instead of two separate patterns. */
 nav:has(+ main .home-hero) {
   background: transparent;
-}
-nav:has(+ main .home-hero) .nav-inner {
-  max-width: var(--home-width);
-  padding: 0 80px;
-}
-@media (max-width: 900px) {
-  nav:has(+ main .home-hero) .nav-inner { padding: 0 40px; }
-}
-@media (max-width: 760px) {
-  nav:has(+ main .home-hero) .nav-inner { padding: 0 24px; }
 }
 
 /* Home Hero — big title over a faint grid backdrop, featured posts below.
@@ -303,11 +296,17 @@ nav:has(+ main .home-hero) .nav-inner {
 
 /* Section */
 .section {
-  max-width: var(--content-width);
+  max-width: var(--home-width);
   margin: 0 auto;
-  padding: 24px 24px;
+  padding: 24px 80px;
 }
 .section:last-child { padding-bottom: 40px; }
+@media (max-width: 900px) {
+  .section { padding-left: 40px; padding-right: 40px; }
+}
+@media (max-width: 760px) {
+  .section { padding-left: 24px; padding-right: 24px; }
+}
 .section-header {
   display: flex;
   align-items: center;
@@ -444,9 +443,19 @@ nav:has(+ main .home-hero) .nav-inner {
 
 /* Article Card */
 .article-wrap {
+  max-width: var(--home-width);
+  margin: 0 auto;
+  padding: 32px 80px 48px;
+}
+@media (max-width: 900px) {
+  .article-wrap { padding-left: 40px; padding-right: 40px; }
+}
+@media (max-width: 760px) {
+  .article-wrap { padding-left: 24px; padding-right: 24px; }
+}
+.article-inner {
   max-width: 760px;
   margin: 0 auto;
-  padding: 32px 0 48px;
 }
 .article-card-thumb {
   aspect-ratio: 16 / 9;
@@ -471,10 +480,6 @@ nav:has(+ main .home-hero) .nav-inner {
   align-items: center;
   gap: 12px;
   margin-bottom: 16px;
-  font-size: 14px;
-  color: var(--text-tertiary);
-}
-.article-card-cat {
   font-size: 14px;
   color: var(--text-tertiary);
 }
@@ -553,24 +558,18 @@ footer {
   border-top: 0.5px solid var(--border);
 }
 .footer-inner {
-  max-width: var(--content-width);
+  max-width: var(--home-width);
   margin: 0 auto;
-  padding: 24px;
+  padding: 24px 80px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
-/* On the homepage, align the footer's left edge with the wider
-   home-width hero/posts content instead of the narrower content-width. */
-main:has(.home-hero) + footer .footer-inner {
-  max-width: var(--home-width);
-  padding: 24px 80px;
-}
 @media (max-width: 900px) {
-  main:has(.home-hero) + footer .footer-inner { padding: 24px 40px; }
+  .footer-inner { padding: 24px 40px; }
 }
 @media (max-width: 760px) {
-  main:has(.home-hero) + footer .footer-inner { padding: 24px; }
+  .footer-inner { padding: 24px; }
 }
 .footer-copy {
   font-size: 12px;
