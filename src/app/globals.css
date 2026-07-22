@@ -184,7 +184,12 @@ nav:has(+ main .home-hero) .nav-inner {
   background: transparent;
   border: 1px solid var(--border-secondary);
   border-radius: 4px;
-  padding: 12px 8px;
+  padding: 0 8px;
+  height: 40px;
+  min-width: 64px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
@@ -553,7 +558,19 @@ footer {
   padding: 24px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+}
+/* On the homepage, align the footer's left edge with the wider
+   home-width hero/posts content instead of the narrower content-width. */
+main:has(.home-hero) + footer .footer-inner {
+  max-width: var(--home-width);
+  padding: 24px 80px;
+}
+@media (max-width: 900px) {
+  main:has(.home-hero) + footer .footer-inner { padding: 24px 40px; }
+}
+@media (max-width: 760px) {
+  main:has(.home-hero) + footer .footer-inner { padding: 24px; }
 }
 .footer-copy {
   font-size: 12px;
