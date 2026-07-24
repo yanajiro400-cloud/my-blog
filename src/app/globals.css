@@ -25,20 +25,6 @@
   --grid-line: rgba(0,0,0,0.04);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #111110;
-    --bg-secondary: #1c1c1a;
-    --text: #eeeeec;
-    --text-secondary: #a0a09a;
-    --text-tertiary: #6b6b66;
-    --border: rgba(255,255,255,0.08);
-    --border-secondary: rgba(255,255,255,0.15);
-    --grid-line: rgba(255,255,255,0.04);
-    --accent-blue-tint: rgba(0, 72, 255, 0.16);
-  }
-}
-
 body {
   font-family: var(--font-noto-sans-jp), var(--font-montserrat), sans-serif;
   background: var(--bg-secondary);
@@ -87,14 +73,6 @@ nav {
   text-decoration: none;
   letter-spacing: -0.2px;
 }
-.nav-links { display: flex; gap: 28px; }
-.nav-links a {
-  font-size: 13px;
-  color: var(--text-secondary);
-  text-decoration: none;
-}
-.nav-links a:hover { color: var(--text); }
-
 /* On the homepage, nav has no background of its own — it sits directly on
    top of the hero's grid backdrop below (hero is pulled up behind it), so
    both share one continuous background instead of two separate patterns. */
@@ -253,7 +231,9 @@ nav:has(+ main .home-hero) {
 .home-post-textgroup { display: flex; flex-direction: column; gap: 12px; }
 .home-post-title { font-size: 16px; color: var(--text); line-height: 1.5; }
 .home-post-date { font-size: 14px; color: var(--text-secondary); }
+.home-post-tags { display: flex; gap: 6px; flex-wrap: wrap; }
 .home-post-tag { font-size: 14px; color: var(--text-secondary); }
+.home-post-tag::before { content: "#"; }
 
 @media (max-width: 900px) {
   .home-posts-inner { padding: 56px 40px; }

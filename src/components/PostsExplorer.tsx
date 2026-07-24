@@ -50,7 +50,13 @@ export function PostsExplorer({ title, posts, categories }: { title: string; pos
                   <p className="home-post-title">{post.title}</p>
                   <p className="home-post-date">{formatDate(post.date)}</p>
                 </div>
-                {post.tags?.[0] && <p className="home-post-tag">#{post.tags[0]}</p>}
+                {post.tags && post.tags.length > 0 && (
+                  <div className="home-post-tags">
+                    {post.tags.map((tag) => (
+                      <span key={tag} className="home-post-tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
               </div>
             </Link>
           </Reveal>

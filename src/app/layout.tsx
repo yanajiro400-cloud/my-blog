@@ -38,15 +38,12 @@ export default function RootLayout({
         <nav>
           <div className="nav-inner">
             <Link href="/" className="logo">Jiro Blog</Link>
-            <div className="nav-links">
-              <Link href="/blog">Blog</Link>
-            </div>
           </div>
         </nav>
         <main className="flex-1">{children}</main>
         <footer>
           <div className="footer-inner">
-            <p className="footer-copy">© 2025 Jiro Blog</p>
+            <p className="footer-copy">© {new Date().getFullYear()} Jiro Blog</p>
           </div>
         </footer>
       </body>
